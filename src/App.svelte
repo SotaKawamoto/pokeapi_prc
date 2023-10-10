@@ -1,7 +1,7 @@
 <script>
    
-
-    import pokeDetails, { pokemon } from './pokedetails.svelte'
+    import pokelist from './pokelist.svelte'
+    import pokeDetails from './pokedetails.svelte'
     let name;
     
     const promise = getPokemons();
@@ -26,15 +26,8 @@
 <div>
     {#await promise}<!--非同期（この時name,urlのjson）データの確認-->
         searching pokemon
-    {:then pokemons} <!--pokelist先のデータ？？pokemons??url先のjosnデータ関係の気がするけど-->
-        <Pokelist pokemons={pokemons}
-
+    {:then pokemons} <!--pokelist先のデータ？？pokemons??url先のjosnデータ関係の気がするけど中かっこは何-->
+        <Pokelist pokemons={pokemons}　on:selectPokemon={selectePokemon} />
+    
 
 </div>
-
-<main>
-    <input bind:value = {name} />
-    <h1>
-        output 
-    </h1>
-</main>
