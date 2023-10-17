@@ -2,12 +2,11 @@
     import Searchbar from './searchbar.svelte'
     import Pokelist　from './pokelist.svelte'
     import PokeDetails from './pokedetails.svelte'
+    import Pokechoose from './pokechoose.svelte';
     //props名の頭文字は大文字にしなくては認識してくれない
     //propertiesの頭文字は大文字にするのが命名規則
     //命名規則についてhttps://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions
     
-
-    let name;
     
     const promise = getPokemons();//非同期処理の結果を表すオブジェクトがpromiseで、getpokemons()によって得た非同期情報を表す
     let selectedPokemon = null;
@@ -27,6 +26,21 @@
     }
 
     let q = 'kietemau'//これはsearchbarの中のinputのバリューだから変数じゃないいと定数には書き込めん
+
+    const handleSubmit = () =>{
+        console.log('handleSubmit')
+    }
+
+
+    const choosepoke = async ({pokemons}) => {//ポケモンの検索機能にしたい
+    pokes = []
+    empty = false
+    const result = await pokemons.get({ q })//getは何？？？
+    empty = result.totalItems === 0
+    books = result.name
+    }
+
+
 </script>
 
 <h1>
@@ -48,7 +62,9 @@
         また、on:によってselectpokemon関数を結んでいる。
         selectpokemon関数内のselectpokemonはpokelistのbottonによるイベントで取得される変数かな？？マークアップ側で制御できるんや・・
         あとifの中身は真偽で使ってるて感じかな？selectedpokemonが存在する＝＞pokelist内で選択されているなら真-->
-        <Pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />
+
+        <Pokechoose pokemons={pokemons} on:selectPokemon={result.name}>
+<!--    <Pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />  -->
         {#if selectedPokemon}
             <PokeDetails pokemon = {selectedPokemon} />
         {:else}
