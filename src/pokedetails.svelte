@@ -1,5 +1,8 @@
 <script>
-    export let pokemon//pokedetailsを使うときに引っ張てくる値をpokemon(これは任意？持ってくるデータで決まっている？) =に入れる。このときは、url?? {jsonデータを指すのか？}.はオブジェクトだろうけど.あと画像の切り替えもできてないけど、defaultからofficial artworkとかの切り替えできない漢字なん？
+    export let pokemon
+    //pokedetailsを使うためにpokelistのclickeventで選択されたselectedpokemon情報を取得し、pokemonに格納する
+    //このときは、url?? {jsonデータを指すのか？}.はオブジェクトだろうけど.あと画像の切り替えもできてないけど、
+    //defaultからofficial artworkとかの切り替えできない漢字なん？
     let promise
     $:promise =getpoke(pokemon.url)
 
