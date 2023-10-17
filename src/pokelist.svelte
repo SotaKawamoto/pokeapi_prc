@@ -17,6 +17,6 @@
         <button on:click="{() => handlePokemonClick(pokemon)}" ><!--pokemonに対してのbottton[pokemonname]でのトリガーの設定-->
             {pokemon.name}
         <button>
-    </li.>
+    </li>
     {/each}
 </ul>

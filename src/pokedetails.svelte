@@ -22,4 +22,4 @@
     {:catch error}
         Error
     {/await}
-<div/>
+</div>

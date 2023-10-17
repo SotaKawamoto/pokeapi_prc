@@ -35,7 +35,7 @@
         また、on:によってselectpokemon関数を結んでいる。
         selectpokemon関数内のselectpokemonはpokelistのbottonによるイベントで取得される変数かな？？マークアップ側で制御できるんや・・
         あとifの中身は真偽で使ってるて感じかな？selectedpokemonが存在する＝＞pokelist内で選択されているなら真-->
-        <pokelist pokemons={pokemons}　on:selectPokemon={selectePokemon} />
+        <pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />
         {#if selectedPokemon}
             <pokeDetails pokemon = {selectedPokemon} />
         {:else}
