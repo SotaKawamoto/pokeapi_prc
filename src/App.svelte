@@ -16,7 +16,7 @@
     //　マークアップ側で｛#await promise｝ {:then pokemons} {:catch errot}みたいな感じで制御できる
 
     async function getPokemons(){//非同期情報を得る関数の定義
-        const res =await fetch('https://pokeapi.co/api/v2/pokemon')//name,urlの入ったデータを得ることができる？指定までか？
+        const res =await fetch('https://pokeapi.co/api/v2/pokemon?limit=1017&&offset=0')//name,urlの入ったデータを得ることができる？指定までか？
         const json =await res.json();//ここでjsonデータの入手か
 
         return json.results;// ここにresult:name,urlが入ってる
