@@ -1,5 +1,5 @@
 <script>
-   
+    import Searchbar from './searchbar.svelte'
     import Pokelist　from './pokelist.svelte'
     import PokeDetails from './pokedetails.svelte'
     //props名の頭文字は大文字にしなくては認識してくれない
@@ -25,13 +25,22 @@
     const selectPokemon= ({detail}) => {//アローは”っていうのは”みたいな感じ
         selectedPokemon = detail;
     }
+
+    let q = 'kietemau'//これはsearchbarの中のinputのバリューだから変数じゃないいと定数には書き込めん
 </script>
 
 <h1>
     Pokesearch
 </h1>
 
+<form>
+    <Searchbar bind:value={q} />
+    {q}
+</form>
+    
 <div>
+    
+
     {#await promise}<!--非同期（この時name,urlのjson）データの確認-->
         searching pokemon
     {:then pokemons} 
