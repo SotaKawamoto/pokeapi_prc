@@ -4,9 +4,9 @@
     //このときは、url?? {jsonデータを指すのか？}.はオブジェクトだろうけど.あと画像の切り替えもできてないけど、
     //defaultからofficial artworkとかの切り替えできない漢字なん？
     let promise
-    $:promise =getpoke(pokemon.url)
+    $:promise = getPoke(pokemon.url)
 
-    async function getpoke(url){
+    async function getPoke(url){
         const res = await fetch(pokemon.url);
         return await res.json();
     }

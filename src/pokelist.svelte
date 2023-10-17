@@ -1,7 +1,7 @@
 <script>
-    import {createEventDispatcher} from 'svelte'//??? https://qiita.com/sho_U/items/2d52590bd7973fbec671
+    import {createEventDispatcher} from 'svelte'; //??? https://qiita.com/sho_U/items/2d52590bd7973fbec671
 
-    const dispatch = createEventDidpatcher();
+    const dispatch = createEventDispatcher();
 
     export let pokemons =[]
 

@@ -1,7 +1,11 @@
 <script>
    
-    import pokelist from './pokelist.svelte'
-    import pokeDetails from './pokedetails.svelte'
+    import Pokelist　from './pokelist.svelte'
+    import PokeDetails from './pokedetails.svelte'
+    //props名の頭文字は大文字にしなくては認識してくれない
+    //propertiesの頭文字は大文字にするのが命名規則
+    //命名規則についてhttps://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions
+    
 
     let name;
     
@@ -35,9 +39,9 @@
         また、on:によってselectpokemon関数を結んでいる。
         selectpokemon関数内のselectpokemonはpokelistのbottonによるイベントで取得される変数かな？？マークアップ側で制御できるんや・・
         あとifの中身は真偽で使ってるて感じかな？selectedpokemonが存在する＝＞pokelist内で選択されているなら真-->
-        <pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />
+        <Pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />
         {#if selectedPokemon}
-            <pokeDetails pokemon = {selectedPokemon} />
+            <PokeDetails pokemon = {selectedPokemon} />
         {:else}
             not selected
         {/if}    
