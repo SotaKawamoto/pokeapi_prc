@@ -1,5 +1,5 @@
 <script>
-   
+    import Searchbar from './searchbar.svelte'
     import Pokelist　from './pokelist.svelte'
     import PokeDetails from './pokedetails.svelte'
     //props名の頭文字は大文字にしなくては認識してくれない
@@ -16,7 +16,7 @@
     //　マークアップ側で｛#await promise｝ {:then pokemons} {:catch errot}みたいな感じで制御できる
 
     async function getPokemons(){//非同期情報を得る関数の定義
-        const res =await fetch('https://pokeapi.co/api/v2/pokemon')//name,urlの入ったデータを得ることができる？指定までか？
+        const res =await fetch('https://pokeapi.co/api/v2/pokemon?limit=1017&&offset=0')//name,urlの入ったデータを得ることができる？指定までか？
         const json =await res.json();//ここでjsonデータの入手か
 
         return json.results;// ここにresult:name,urlが入ってる
@@ -25,13 +25,22 @@
     const selectPokemon= ({detail}) => {//アローは”っていうのは”みたいな感じ
         selectedPokemon = detail;
     }
+
+    let q = 'kietemau'//これはsearchbarの中のinputのバリューだから変数じゃないいと定数には書き込めん
 </script>
 
 <h1>
     Pokesearch
 </h1>
 
+<form>
+    <Searchbar bind:value={q} />
+    {q}
+</form>
+    
 <div>
+    
+
     {#await promise}<!--非同期（この時name,urlのjson）データの確認-->
         searching pokemon
     {:then pokemons} 

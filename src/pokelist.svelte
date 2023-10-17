@@ -12,6 +12,7 @@
 </script>
 
 <ul>
+
     {#each pokemons as pokemon}<!-- https://learn.svelte.dev/tutorial/each-blocks  ポケモン毎に設定するんじゃなくて、pokemonで型作ってそれをポケモン毎に入れていく。-->
     <li>
         <button on:click="{() => handlePokemonClick(pokemon)}" ><!--pokemonに対してのbottton[pokemonname]でのトリガーの設定-->
