@@ -7,11 +7,14 @@
     //propertiesの頭文字は大文字にするのが命名規則
     //命名規則についてhttps://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions
     
-    
-    const promise = getPokemons();//非同期処理の結果を表すオブジェクトがpromiseで、getpokemons()によって得た非同期情報を表す
+    let q = 'kietemau'//これはsearchbarの中のinputのバリューだから変数じゃないいと定数には書き込めん
+    let pokes =[];
+    let empty = false
+
+    const promise1 = getPokemons();//非同期処理の結果を表すオブジェクトがpromiseで、getpokemons()によって得た非同期情報を表す
     let selectedPokemon = null;
 
-    // 非同期処理promiseオブジェクトの使い方in svelte　
+    // 非同期処理promiseオブジェクトの使い方in svelte　多分promiseのワードに意味があるのではなく、asyncでpromiseの意味になる？
     //　マークアップ側で｛#await promise｝ {:then pokemons} {:catch errot}みたいな感じで制御できる
 
     async function getPokemons(){//非同期情報を得る関数の定義
@@ -21,23 +24,22 @@
         return json.results;// ここにresult:name,urlが入ってる
     }
 
-    const selectPokemon= ({detail}) => {//アローは”っていうのは”みたいな感じ
+    /*const selectPokemon = ({detail}) => {//アローは”っていうのは”みたいな感じ
         selectedPokemon = detail;
-    }
+    }*/
 
-    let q = 'kietemau'//これはsearchbarの中のinputのバリューだから変数じゃないいと定数には書き込めん
+
 
     const handleSubmit = () =>{
-        console.log('handleSubmit')
+        let promise2 =choosepoke()
     }
 
-
-    const choosepoke = async ({pokemons}) => {//ポケモンの検索機能にしたい
+    const choosepoke = async () => {//ポケモンの検索機能にしたい js6133
     pokes = []
     empty = false
-    const result = await pokemons.get({ q })//getは何？？？
+    const result = await pokemons.get({ q })//getは何？？？ {q}を満たす個をgetする
     empty = result.totalItems === 0
-    books = result.name
+    pokes = result.name
     }
 
 
@@ -55,25 +57,39 @@
 <div>
     
 
-    {#await promise}<!--非同期（この時name,urlのjson）データの確認-->
+    {#await promise1}<!--非同期（この時name,urlのjson）データの確認-->
         searching pokemon
-    {:then pokemons} 
-        <!--pokelist先のpokemonsにpromiseの処理によって得られた非同期データ｛pokemon｝（json.result）を格納している。
-        また、on:によってselectpokemon関数を結んでいる。
-        selectpokemon関数内のselectpokemonはpokelistのbottonによるイベントで取得される変数かな？？マークアップ側で制御できるんや・・
-        あとifの中身は真偽で使ってるて感じかな？selectedpokemonが存在する＝＞pokelist内で選択されているなら真-->
+        
+    {:then pokemons} <!--結局このpokemonsはユーザーが選べる変数でpromise１の結果が格納されるのか-->
 
-        <Pokechoose pokemons={pokemons} on:selectPokemon={result.name}>
-<!--    <Pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} />  -->
+    <!--pokelist先のpokemonsにpromiseの処理によって得られた非同期データ｛pokemon｝（json.result）を格納している。
+    また、on:によってselectpokemon関数を結んでいる。
+    selectpokemon関数内のselectpokemonはpokelistのbottonによるイベントで取得される変数かな？？マークアップ側で制御できるんや・・
+    あとifの中身は真偽で使ってるて感じかな？selectedpokemonが存在する＝＞pokelist内で選択されているなら真-->
+
+    <!--<Pokechoose pokemons={pokemons} pokes={selectPokemon} />-->   <!--カスタムイベントにpokesを設定しないとだめかも
+
+        未だにonが分かってるとはいえないけど、pokes＝{selectPokemon関数で pokesの情報、
+    つまりはpoklelistでいうボタンで選択されたpokemonの情報、pokechhohseでいうリンクの場所で入力で検索されたpokeの名前の情報} がselectedぽけもんに入力される
+ただ、この順序よく分からん　-->
+<!--    <Pokelist pokemons={pokemons}　on:selectPokemon={selectPokemon} /> 後ろの/>これの扱いは；みたいなもの -->
+            {#await promise2}
+            {:then selectedpokrmon}<!--thenの変数の方は開発者が定義？？　非同期操作が成功した場合に結果がその変数に格納される-->
+
         {#if selectedPokemon}
             <PokeDetails pokemon = {selectedPokemon} />
-        {:else}
+            {:else}
             not selected
-        {/if}    
+        {/if}
+        {/await}
+
     {:catch error}
-        {error.message}
+        error
+    
     {/await}
-</div>
+    
+
+</div>    
 
 <style>
     h1{
