@@ -3,6 +3,7 @@
     import Pokelist　from './pokelist.svelte'
     import PokeDetails from './pokedetails.svelte'
     import Pokechoose from './pokechoose.svelte';
+  import { handle_promise } from 'svelte/internal';
     //props名の頭文字は大文字にしなくては認識してくれない
     //propertiesの頭文字は大文字にするのが命名規則
     //命名規則についてhttps://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions
@@ -49,7 +50,7 @@
     Pokesearch
 </h1>
 
-<form>
+<form on:submit|preventDefault={handleSubmit}>
     <Searchbar bind:value={q} />
     {q}
 </form>
