@@ -39,6 +39,7 @@
             pokes = names
             console.log(names)
             /*console.log(result.name)resultはnameプロパティを持つ検索されたオブジェくとの配列だからnameプロパティを持たない*/
+            selectedPokemon = names;
             }         
         }catch(error){
             console.error(error)
