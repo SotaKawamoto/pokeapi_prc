@@ -14,15 +14,14 @@
 </script>
 
 <style>
-    <style>
     div {
         text-align: center;
         margin: 20px;
         display: flex;
         justify-content: center; /* 中央寄せ */
-        align-items: center; /* 上下中央寄せ */
         height: 100vh; /* 画面の高さいっぱいに広がるように */
         flex-direction: column; /* 縦に並べる */
+        width: 25%;
     }
 
     h2 {

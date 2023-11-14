@@ -9,12 +9,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 20%;
+    width:100%;
+    background-color: #070807;
     flex-direction: column;
   }
 
   .shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #0000001a;
   }
 
   .flex {
@@ -26,14 +28,14 @@
   input {
     text-align: center;
     margin: 20px;
-    width: 80%;
+    width: 20%;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 10px;
   }
 
   button {
-    background-color: #fff;
+    background-color: #a3bbad;
     cursor: pointer;
     padding: 10px;
   }

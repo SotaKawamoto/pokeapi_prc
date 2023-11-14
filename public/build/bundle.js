@@ -561,7 +561,8 @@ var app = (function () {
     const file$2 = "src\\searchbar.svelte";
 
     function create_fragment$2(ctx) {
-    	let div;
+    	let div1;
+    	let div0;
     	let input;
     	let t0;
     	let button;
@@ -573,19 +574,20 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div1 = element("div");
+    			div0 = element("div");
     			input = element("input");
     			t0 = space();
     			button = element("button");
     			svg = svg_element("svg");
     			path = svg_element("path");
-    			t1 = text("\r\n      検索");
-    			attr_dev(input, "class", "w-full rounded p-2");
+    			t1 = text("\r\n        検索");
+    			attr_dev(input, "class", "w-full rounded p-2 svelte-77mnyf");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Search...");
-    			add_location(input, file$2, 7, 4, 132);
+    			add_location(input, file$2, 45, 6, 788);
     			attr_dev(path, "d", "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z");
-    			add_location(path, file$2, 10, 8, 484);
+    			add_location(path, file$2, 48, 10, 1146);
     			attr_dev(svg, "fill", "none");
     			attr_dev(svg, "stroke", "currentColor");
     			attr_dev(svg, "stroke-linecap", "round");
@@ -593,21 +595,24 @@ var app = (function () {
     			attr_dev(svg, "stroke-width", "2");
     			attr_dev(svg, "viewBox", "0 0 24 24");
     			attr_dev(svg, "class", "w-6 h-6");
-    			add_location(svg, file$2, 9, 6, 335);
-    			attr_dev(button, "class", "bg-white w-auto flex justify-end items-center text-blue-500 p-2 hover:text-blue-400");
-    			add_location(button, file$2, 8, 4, 227);
-    			attr_dev(div, "class", "shadow flex");
-    			add_location(div, file$2, 6, 0, 101);
+    			add_location(svg, file$2, 47, 8, 995);
+    			attr_dev(button, "class", "bg-white w-auto flex justify-end items-center text-blue-500 p-2 hover:text-blue-400 svelte-77mnyf");
+    			add_location(button, file$2, 46, 6, 885);
+    			attr_dev(div0, "class", "shadow flex svelte-77mnyf");
+    			add_location(div0, file$2, 44, 2, 755);
+    			attr_dev(div1, "class", "svelte-77mnyf");
+    			add_location(div1, file$2, 43, 0, 746);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, input);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+    			append_dev(div0, input);
     			set_input_value(input, /*value*/ ctx[0]);
-    			append_dev(div, t0);
-    			append_dev(div, button);
+    			append_dev(div0, t0);
+    			append_dev(div0, button);
     			append_dev(button, svg);
     			append_dev(svg, path);
     			append_dev(button, t1);
@@ -625,7 +630,7 @@ var app = (function () {
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
     			mounted = false;
     			dispose();
     		}
@@ -700,7 +705,7 @@ var app = (function () {
 
     const file$1 = "src\\pokedetails.svelte";
 
-    // (22:4) {:catch error}
+    // (46:4) {:catch error}
     function create_catch_block$1(ctx) {
     	let t;
 
@@ -721,14 +726,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$1.name,
     		type: "catch",
-    		source: "(22:4) {:catch error}",
+    		source: "(46:4) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (19:4) {:then pokemonDetails}
+    // (43:4) {:then pokemonDetails}
     function create_then_block$1(ctx) {
     	let h2;
     	let t0_value = /*pokemonDetails*/ ctx[3].name + "";
@@ -744,10 +749,12 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			img = element("img");
-    			add_location(h2, file$1, 19, 8, 527);
+    			attr_dev(h2, "class", "svelte-h6vngb");
+    			add_location(h2, file$1, 43, 8, 1034);
     			if (!src_url_equal(img.src, img_src_value = /*pokemonDetails*/ ctx[3].sprites.versions['generation-vii']['ultra-sun-ultra-moon'].front_default)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*pokemonDetails*/ ctx[3].name);
-    			add_location(img, file$1, 20, 8, 567);
+    			attr_dev(img, "class", "svelte-h6vngb");
+    			add_location(img, file$1, 44, 8, 1074);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -777,14 +784,14 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(19:4) {:then pokemonDetails}",
+    		source: "(43:4) {:then pokemonDetails}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:20)           searching {pokemon.name}
+    // (41:20)           searching {pokemon.name}
     function create_pending_block$1(ctx) {
     	let t0;
     	let t1_value = /*pokemon*/ ctx[0].name + "";
@@ -812,7 +819,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(17:20)           searching {pokemon.name}",
+    		source: "(41:20)           searching {pokemon.name}",
     		ctx
     	});
 
@@ -841,7 +848,8 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			info.block.c();
-    			add_location(div, file$1, 15, 0, 428);
+    			attr_dev(div, "class", "svelte-h6vngb");
+    			add_location(div, file$1, 39, 0, 935);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -959,7 +967,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file = "src\\App.svelte";
 
-    // (73:4) {:catch error}
+    // (91:4) {:catch error}
     function create_catch_block(ctx) {
     	let t;
 
@@ -982,14 +990,14 @@ var app = (function () {
     		block,
     		id: create_catch_block.name,
     		type: "catch",
-    		source: "(73:4) {:catch error}",
+    		source: "(91:4) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:4) {:then pokemons}
+    // (85:4) {:then pokemons}
     function create_then_block(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -1062,14 +1070,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(67:4) {:then pokemons}",
+    		source: "(85:4) {:then pokemons}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:8) {:else}
+    // (88:8) {:else}
     function create_else_block(ctx) {
     	let t;
 
@@ -1092,14 +1100,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(70:8) {:else}",
+    		source: "(88:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (68:8) {#if selectedPokemon && selectedPokemon.length > 0}
+    // (86:8) {#if selectedPokemon && selectedPokemon.length > 0}
     function create_if_block(ctx) {
     	let pokedetails;
     	let current;
@@ -1140,14 +1148,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(68:8) {#if selectedPokemon && selectedPokemon.length > 0}",
+    		source: "(86:8) {#if selectedPokemon && selectedPokemon.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:21)           searching pokemon      {:then pokemons}
+    // (83:21)           searching pokemon      {:then pokemons}
     function create_pending_block(ctx) {
     	let t;
 
@@ -1170,7 +1178,7 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(65:21)           searching pokemon      {:then pokemons}",
+    		source: "(83:21)           searching pokemon      {:then pokemons}",
     		ctx
     	});
 
@@ -1227,11 +1235,12 @@ var app = (function () {
     			t2 = space();
     			div = element("div");
     			info.block.c();
-    			attr_dev(h1, "class", "svelte-1vyedlk");
-    			add_location(h1, file, 54, 0, 1705);
-    			add_location(form, file, 58, 0, 1736);
-    			attr_dev(div, "class", "svelte-1vyedlk");
-    			add_location(div, file, 62, 0, 1833);
+    			attr_dev(h1, "class", "svelte-15xhi5x");
+    			add_location(h1, file, 72, 0, 2074);
+    			attr_dev(form, "class", "svelte-15xhi5x");
+    			add_location(form, file, 76, 0, 2105);
+    			attr_dev(div, "class", "svelte-15xhi5x");
+    			add_location(div, file, 80, 0, 2202);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
