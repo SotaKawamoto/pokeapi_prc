@@ -31,15 +31,17 @@
             /*console.log(pokemons)  //ポケモン　*/
             console.log({q})
             if(pokemons){
-            const result = pokemons.filter(pokemon => pokemon.name === q)
-            console.log(result)
-            /*const result = await pokemons.get({ q })*/
-            empty = result.length === 0
-            const names = result.map(pokemon => pokemon.name);//pokemonオブジェクトの配列からpokemonオブジェクト内のnameプロパティの配列に変更
-            pokes = names
-            console.log(names)
-            /*console.log(result.name)resultはnameプロパティを持つ検索されたオブジェくとの配列だからnameプロパティを持たない*/
-            selectedPokemon = names;
+                const result = pokemons.filter(pokemon => pokemon.name === q)
+                console.log(result)
+                /*const result = await pokemons.get({ q })*/
+                empty = result.length === 0
+                const names = result.map(pokemon => pokemon.name);//pokemonオブジェクトの配列からpokemonオブジェクト内のnameプロパティの配列に変更
+                pokes = names
+                console.log(names)
+                /*console.log(result.name)resultはnameプロパティを持つ検索されたオブジェくとの配列だからnameプロパティを持たない*/
+                selectedPokemon =  await result;
+                console.log(selectedPokemon)
+                return selectedPokemon;
             }         
         }catch(error){
             console.error(error)
@@ -50,13 +52,30 @@
 
 </script>
 
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        justify-content: center; /* 中央寄せ */
+        align-items: center; /* 上下中央寄せ */
+        height: 100vh; /* 画面の高さいっぱいに広がるように */
+        flex-direction: column; /* 縦に並べる */
+    }
+
+    form {
+        margin-bottom: 20px; /* フォームと下のコンテンツの間に余白を追加 */
+    }
+</style>
+
 <h1>
     Pokesearch
 </h1>
 
 <form on:submit|preventDefault={handleSubmit}>
     <Searchbar bind:value={q} />
-    {q}
 </form>
     
 <div>
@@ -64,8 +83,8 @@
     {#await promise1}
         searching pokemon
     {:then pokemons} 
-        {#if selectedPokemon}
-            <PokeDetails pokemon = {selectedPokemon} />
+        {#if selectedPokemon && selectedPokemon.length > 0}
+            <PokeDetails pokemon = {selectedPokemon[0]} />
         {:else}
             not selected
         {/if}
@@ -73,12 +92,3 @@
         error   
     {/await}
 </div>    
-
-<style>
-    h1{
-        text-align: center;
-    }
-    div{
-        display: flex;
-    }
-</style>

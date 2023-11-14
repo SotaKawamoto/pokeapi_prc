@@ -13,12 +13,37 @@
 
 </script>
 
+<style>
+    <style>
+    div {
+        text-align: center;
+        margin: 20px;
+        display: flex;
+        justify-content: center; /* 中央寄せ */
+        align-items: center; /* 上下中央寄せ */
+        height: 100vh; /* 画面の高さいっぱいに広がるように */
+        flex-direction: column; /* 縦に並べる */
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    img {
+        max-width: 100%; /* 画像の最大幅を設定 */
+        height: auto; /* アスペクト比を保持しながら幅に合わせて調整 */
+        margin-top: 10px; /* 画像とタイトルの間に余白を追加 */
+    }
+</style>
+
+
 <div>
     {#await promise}
         searching {pokemon.name}
     {:then pokemonDetails}
         <h2>{pokemonDetails.name}</h2>
-        <img src = {pokemonDetails.sprites.front_default} alt={pokemonDetails.name} />
+        <img src = {pokemonDetails.sprites.versions['generation-vii']['ultra-sun-ultra-moon'].front_default} alt={pokemonDetails.name} />
     {:catch error}
         Error
     {/await}
