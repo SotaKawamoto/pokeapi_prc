@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "pokeapi_prc",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -26,7 +26,7 @@
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.1.2",
     "svelte": "^3.55.0",
-    "@sveltejs/adapter-static": "next"
+    "@sveltejs/adapter-auto": "next"
   },
   "dependencies": {
     "sirv-cli": "^2.0.0"
